@@ -13,16 +13,10 @@ tests = [
 
 
 
-def locateCard(cards,number):
-    #create variable to store the position
+def locateCards(cards,number):
     position = 0
-    #iterate through the cards list
-    for card in cards:
-        #check if the card matches to number
-        #return if yes or else increment the position
-        if card == number:
+    while position < len(cards):
+        if cards[position] == number :
             return position
         position += 1
-    #incase the number isnt present
-    #return -1
-    return -1 
+    return -1

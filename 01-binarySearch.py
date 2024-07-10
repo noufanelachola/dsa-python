@@ -1,3 +1,5 @@
+from jovian.pythondsa import evaluate_test_case
+
 # Test cases
 tests = [
     {'input': {'cards': [15, 10, 8, 6, 5, 2, 0], 'number': 8}, 'output': 2},
@@ -14,9 +16,21 @@ tests = [
 
 
 def locateCards(cards,number):
-    position = 0
-    while position < len(cards):
-        if cards[position] == number :
-            return position
-        position += 1
+    low = 0
+    high = len(cards) - 1
+    
+    while low <= high:
+        mid = (low+high)//2
+
+        print(f'low : {low} , high : {high} , mid : {mid} , midNo : {cards[mid]}')
+        
+        if cards[mid] == number :
+            return mid
+        elif cards[mid] > number :
+            low = mid + 1
+        elif cards[mid] < number :
+            high = mid - 1
     return -1
+
+result = locateCards([15, 10, 8, 6, 5, 2, 0],8)
+print(result)
